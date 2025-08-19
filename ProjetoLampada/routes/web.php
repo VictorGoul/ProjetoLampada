@@ -12,7 +12,7 @@ Route::get('/password', [PagesController::class, 'password'])->name('password');
 
 Route::get('/register', [PagesController::class, 'register'])->name('register');
 
-Route::get('/api/dados', function () {
+Route::match(['get', 'post'], '/api/dados', function () {
     return response()->json([
         'labels' => ['Janeiro', 'Fevereiro', 'Março'],
         'values' => [10, 20, 15],
